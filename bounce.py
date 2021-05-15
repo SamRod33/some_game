@@ -7,11 +7,6 @@ from clock import Clock
 from player import Player
 from many_rect import *
 
-window = pygame.display.set_mode((SCREEN_W, SCREEN_H))
-window.fill(WHITE)
-pygame.display.set_caption("Game: ")
-clock = Clock(FPS, 0)
-
 
 def is_collision(rect1, rects):
     """
@@ -29,9 +24,13 @@ def is_collision(rect1, rects):
 
 
 def game_loop():
+    window = pygame.display.set_mode((SCREEN_W, SCREEN_H))
+    window.fill(WHITE)
+    pygame.display.set_caption("Game: ")
+    clock = Clock(FPS)
     running = True
     rect_objs = gen_rects(SPAWN_N)
-    player = Player(P_SPAWN_X, P_SPAWN_Y, P_W, P_H, P_VELOCITY)
+    player = Player(clock, P_SPAWN_X, P_SPAWN_Y, P_W, P_H, P_VELOCITY)
 
     while running:
         for event in pygame.event.get():

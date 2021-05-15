@@ -3,7 +3,7 @@ import pygame
 
 class Clock():
 
-    def __init__(self, FPS, COOLDOWN_TIMER):
+    def __init__(self, FPS, COOLDOWN_TIMER=0):
         """
         creates a clock that keeps track of time. 
         FPS is the frames per second the clock will tick at.
@@ -11,6 +11,7 @@ class Clock():
         self._global_time = 0
         self._clock = pygame.time.Clock()
         self._fps = FPS
+        self._cool_clock = COOLDOWN_TIMER
         self._cooldown = COOLDOWN_TIMER
 
     def update(self):
@@ -19,7 +20,7 @@ class Clock():
         """
         dt = self._clock.tick(self._fps)
         self._global_time += dt
-        self._cooldown += dt
+        self._cool_clock += dt
 
     def global_time(self):
         """
@@ -31,4 +32,4 @@ class Clock():
         return self._cooldown
 
     def reset_cooldown(self):
-        self._cooldown = 0
+        self._cool_clock = 0
