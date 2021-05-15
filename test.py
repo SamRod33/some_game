@@ -7,10 +7,6 @@ Last Updated: 05/15/21
 """
 import unittest
 
-
-class TestSuite(unittest.TestCase):
-    pass
-
-
-if __name__ == '__main__':
-    unittest.main()
+if __name__ == "__main__":
+    testsuite = unittest.TestLoader().discover('.', pattern='*_test.py')
+    unittest.TextTestRunner(verbosity=2).run(testsuite)

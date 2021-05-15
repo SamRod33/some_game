@@ -9,7 +9,7 @@ from player import Player
 from pygame import Rect
 
 
-class TestSuite(unittest.TestCase):
+class PlayerTestSuite(unittest.TestCase):
     def test_p_initalize(self):
         """
         Tests if a player is initalized correctly
@@ -24,5 +24,12 @@ class TestSuite(unittest.TestCase):
         self.assertEqual(player._rect, rect, "Player Rect is rect")
 
 
+def suite():
+    """ This defines all the tests of a module"""
+    suite = unittest.TestSuite()
+    suite.addTest(unittest.makeSuite(PlayerTestSuite))
+    return suite
+
+
 if __name__ == '__main__':
-    unittest.main()
+    unittest.TextTestRunner(verbosity=2).run(suite())
