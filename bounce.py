@@ -7,9 +7,6 @@ from clock import Clock
 from player import Player
 from many_rect import *
 
-# TODO: Move player to its own class along with methods
-# TODO: Move all rectangle functionality to its own class
-
 window = pygame.display.set_mode((SCREEN_W, SCREEN_H))
 window.fill(WHITE)
 pygame.display.set_caption("Game: ")
