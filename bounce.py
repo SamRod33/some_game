@@ -4,6 +4,7 @@ import random
 from colors import *
 from constants import *
 from clock import Clock
+from player import Player
 
 # TODO: Move player to its own class along with methods
 # TODO: Move all rectangle functionality to its own class
@@ -149,7 +150,8 @@ def draw_player(player, alpha, beta, rects):
 def game_loop():
     running = True
     rect_objs = gen_rects(SPAWN_N)
-    player = pygame.Rect(P_SPAWN_X, P_SPAWN_Y, P_W, P_H)
+    # player = pygame.Rect(P_SPAWN_X, P_SPAWN_Y, P_W, P_H)
+    player = Player(P_SPAWN_X, P_SPAWN_Y, P_W, P_H, P_VELOCITY)
 
     while running:
         for event in pygame.event.get():
@@ -160,13 +162,18 @@ def game_loop():
         window.fill(WHITE)
         draw_rects(rect_objs)
         move_rects(rect_objs)
-        if COLLISION:
-            draw_player(player, P_COLOR_ALPHA,
-                        P_COLOR_BETA, rect_objs)
-            rect_objs = [shape for shape in rect_objs if shape['visible']]
+        # if COLLISION:
+        #     draw_player(player, P_COLOR_ALPHA,
+        #                 P_COLOR_BETA, rect_objs)
+        #     rect_objs = [shape for shape in rect_objs if shape['visible']]
+        # else:
+        #     draw_rect(player, P_COLOR_ALPHA)
+        # player_action(player, P_VELOCITY)
+        if COLLISION and is_collision(player._rect, rect_objs):
+            player.draw(window, P_COLOR_BETA)
         else:
-            draw_rect(player, P_COLOR_ALPHA)
-        player_action(player, P_VELOCITY)
+            player.draw(window, P_COLOR_ALPHA)
+        player.action()
         pygame.display.update()
         # update clock
         clock.update()
