@@ -1,5 +1,4 @@
 import pygame
-import random
 
 from colors import *
 from constants import *
