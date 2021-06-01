@@ -1,6 +1,6 @@
 // make constant.js file
-const screenWidth = 800;
-const screenHeight = 600;
+const screenWidth = 1280;
+const screenHeight = 720;
 
 var config = {
   type: Phaser.AUTO,
