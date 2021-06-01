@@ -36,7 +36,9 @@ class Bounce extends Phaser.Scene {
     var y_gt = screenHeight - height / 2;
     var shape = {
       "rect": this.add.rectangle(rand_int(x_lt, x_gt), rand_int(y_lt, y_gt),
-        width, height, parseInt(randomColor().substring(1), 16)),
+        width, height, parseInt(randomColor({
+          luminosity: 'bright'
+        }).substring(1), 16)),
       "velocity": {
         "x": rand_int(5, 10),
         "y": rand_int(5, 10)
