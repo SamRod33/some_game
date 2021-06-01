@@ -1,6 +1,6 @@
 MODULES = player character
 OBJECTS = $(MODULES:=.py)
-MAIN = bounce.py
+MAIN = main.py
 
 play:
 	python $(MAIN)
@@ -17,3 +17,6 @@ docs:
 
 clean:
 	rm -rf *__pycache__ _docs
+
+site:
+	browse web/index.html
