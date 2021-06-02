@@ -5,13 +5,13 @@ class Bounce extends Phaser.Scene {
 
   create() {
     // this.shape = this.gen_shape();
-    this.shapes = this.gen_shapes(50);
+    // this.shapes = this.gen_shapes(50);
   }
 
   update() {
     // this.moveObjWithLimit(this.shape, this.shape.velocity);
-    // this.gen_shape();
-    this.moveObjsWithLimit(this.shapes);
+    this.gen_shape();
+    // this.moveObjsWithLimit(this.shapes);
   }
 
   /* Updates the same as [moveObj]; however, if [obj] has reached the edge of 
