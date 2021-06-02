@@ -1,8 +1,9 @@
 from colors import *
-from pygame.constants import K_LEFT, K_RIGHT, K_UP, K_DOWN, K_SPACE, K_w, K_a, K_s, K_d
+from pygame.constants import K_LEFT, K_RIGHT, K_UP, K_DOWN, K_SPACE, K_w, K_a, K_s, K_d, K_q
 # Screen attributes
 SCREEN_W, SCREEN_H = 1440, 720
 FPS = 60
+PLAYER_QUIT = K_q
 # Physics attributes
 COLLISION = True
 P_COLLISION = True

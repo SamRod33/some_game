@@ -176,6 +176,8 @@ class Player(Character):
         Shoots laser beam if `Player` pressed SHOOT_KEY
         """
         keys = pygame.key.get_pressed()
+        if keys[PLAYER_QUIT]:
+            quit()
         self.move()
         self._move_bullets()
         self.shoot()
