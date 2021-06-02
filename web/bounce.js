@@ -5,7 +5,7 @@ class Bounce extends Phaser.Scene {
 
   create() {
     // this.shape = this.gen_shape();
-    this.shapes = this.gen_shapes(10);
+    this.shapes = this.gen_shapes(50);
   }
 
   update() {
@@ -49,8 +49,8 @@ class Bounce extends Phaser.Scene {
           luminosity: 'bright'
         }).substring(1), 16)),
       "velocity": {
-        "x": rand_int(5, 10),
-        "y": rand_int(5, 10)
+        "x": rand_int(7, 15),
+        "y": rand_int(7, 15)
       },
       "x_lt": x_lt,
       "x_gt": x_gt,
@@ -78,6 +78,7 @@ class Bounce extends Phaser.Scene {
     // check for precondition later
     obj.x += velocity.x;
     obj.y += velocity.y;
+    this.add.rectangle(obj.x, obj.y, obj.width, obj.height, obj.fillColor);
   }
 }
 
