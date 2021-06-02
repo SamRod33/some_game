@@ -11,3 +11,8 @@ var config = {
 };
 
 var game = new Phaser.Game(config);
+
+document.addEventListener("keyup", function (event) {
+  game.destroy();
+  game = new Phaser.Game(config);
+});
