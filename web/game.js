@@ -12,12 +12,12 @@ var config = {
 
 var game = new Phaser.Game(config);
 
-document.addEventListener("keyup", function (event) {
-  game.destroy();
-  game = new Phaser.Game(config);
-});
+const events = ["keyup", "click", "touchend"]
 
-document.addEventListener("click", function (event) {
-  game.destroy();
-  game = new Phaser.Game(config);
-});
+events.forEach(function (e) {
+  document.addEventListener(e, function (event) {
+    game.destroy();
+    game = new Phaser.Game(config);
+  });
+})
+
